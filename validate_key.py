@@ -1,0 +1,1 @@
+with open("license/valid_keys.txt") as f:\n    valid_keys = [line.strip() for line in f]\ntry:\n    with open("license/unlock.txt") as f:\n        user_key = f.read().strip()\nexcept:\n    user_key = ""\nif user_key in valid_keys:\n    print("[✓] License Valid - Full Mode")\nelse:\n    print("[✘] Trial Mode - Limited Features")
