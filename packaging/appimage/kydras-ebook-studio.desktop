@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Kydras eBook Studio
+Comment=Kydras eBook Studio Pro (headless manager + websocket terminal)
+Exec=kydras-ebook-studio
+Icon=kydras
+Terminal=false
+Type=Application
+Categories=Graphics;Utility;Development;

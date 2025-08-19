@@ -1,0 +1,16 @@
+#!/bin/sh
+HERE="$(dirname "$(readlink -f "$0")")"
+
+# Keep GTK quiet and consistent (gets rid of themey CSS warnings)
+export GTK_THEME=Adwaita
+export PYTHONNOUSERSITE=1
+export PYTHONPATH="$HERE/usr/src"
+
+# Force local-only services
+export KES_LICENSE_HOST=127.0.0.1
+export KES_TERMINAL_HOST=127.0.0.1
+
+PY="$HERE/usr/bin/python3"
+[ -x "$PY" ] || PY=python3
+
+exec "$PY" "$HERE/usr/src/kydras_ebook_studio/manager.py"
