@@ -1,15 +1,20 @@
-import websockets
-import asyncio
-import subprocess
+import os, asyncio, websockets
 
-async def handler(websocket):
-    async for command in websocket:
-        try:
-            output = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
-        except subprocess.CalledProcessError as e:
-            output = e.output
-        await websocket.send(output.decode())
+WELCOME = "Kydras terminal ready"
+HOST = os.getenv("KES_TERMINAL_HOST", "127.0.0.1")
+PORT = int(os.getenv("KES_TERMINAL_PORT", "8788"))
 
-start_server = websockets.serve(handler, '0.0.0.0', 8765)
-asyncio.get_event_loop().run_until_complete(start_server)
-asyncio.get_event_loop().run_forever()
+async def handler(ws):
+    await ws.send(WELCOME)
+    async for msg in ws:
+        await ws.send("ping" if msg == "ping" else msg)
+
+async def main():
+    async with websockets.serve(handler, HOST, PORT):
+        await asyncio.Future()
+
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        pass
