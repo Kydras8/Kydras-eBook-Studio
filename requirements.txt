@@ -1,2 +1,4 @@
-flask>=3,<4
-websockets>=12,<14
+click
+rich
+pypdf2
+ebooklib

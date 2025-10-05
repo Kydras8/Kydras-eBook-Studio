@@ -1,0 +1,10 @@
+[project]
+name = 'kydras-ebook-studio'
+version = '0.1.0'
+description = 'Kydras eBook Studio — PDF/EPUB toolkit (CLI skeleton)'
+requires-python = '>=3.10'
+authors = [{name='Kyle Rasmussen', email='8bitlate@gmail.com'}]
+dependencies = [ 'click','rich','pypdf2','ebooklib' ]
+
+[project.scripts]
+kydras-ebook = 'kydras_ebook.cli:main'

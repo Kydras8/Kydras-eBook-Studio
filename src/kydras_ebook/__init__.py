@@ -1,0 +1,1 @@
+"""Kydras eBook Studio (skeleton)."""
