@@ -1,3 +1,11 @@
+<!-- Kydras Repo Header -->
+<p align="center">
+  <strong>Kydras Systems Inc.</strong><br/>
+  <em>Nothing is off limits.</em>
+</p>
+
+---
+
 
 # 📚 Kydras eBook Studio Pro
 
@@ -33,3 +41,4 @@
 git clone https://github.com/Kydras8/Kydras-eBook-Studio.git
 cd Kydras-eBook-Studio
 bash install.sh
+
